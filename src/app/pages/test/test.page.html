@@ -1,0 +1,107 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="2">
+        <ion-back-button></ion-back-button>
+      </ion-col>
+      <ion-col size="10">
+        <ion-title>test</ion-title>
+      </ion-col>
+    </ion-row>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col>
+    <ion-row>
+      <ion-button (click)=" startRecording()">
+        <ion-icon slot="start" name="recording-outline"></ion-icon>
+         Start Record
+      </ion-button>
+
+      <ion-button (click)="stopRecording()">
+        <ion-icon slot="start" name="stop-outline"></ion-icon>
+        Stop Record
+      </ion-button>
+
+      <ion-button (click)="playRecording()">
+        <ion-icon slot="start" name="play"></ion-icon>
+        Play
+      </ion-button>
+
+      <ion-button (click)="pauseRecording()">
+        <ion-icon slot="start" name="pause"></ion-icon>
+        Pause
+      </ion-button>
+
+      <ion-button (click)="pickAndConvertToBase64()">
+        <ion-icon slot="start" name="cloud-download-outline"></ion-icon>
+        Get Base64
+      </ion-button>
+    
+    </ion-row>
+    <ion-row>
+      <div *ngIf="attachedFileName!=''">
+        <img class="attachment" [src]="attachedFileName">
+      </div>
+    </ion-row>
+    <ion-row style="height: 25;">
+      <ion-icon name="document" (click)="selectdownloadPdf()"></ion-icon>
+    </ion-row>
+
+    <ion-row>
+      <ion-button (click)="chooseFile()">
+        <ion-icon slot="start" name="cloud-download-outline"></ion-icon>
+        Choose PDF
+      </ion-button>
+    </ion-row>
+  </ion-col>
+
+  <ion-item *ngif="errtxt!= '' ">
+	  <ion-input type="text" id="name">{{errtxt}}</ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" id="name">{{recognisedtext}}</ion-input>
+</ion-item>
+
+</ion-content>
+<ion-footer>
+
+  <ion-button (click)="pickAttachment()">
+    <ion-icon slot="start" name="attach"></ion-icon>
+    Add File
+  </ion-button>
+
+  <ion-button (click)="uploadresume()">
+    <ion-icon slot="start" name="attach"></ion-icon>
+    Add PDf
+  </ion-button>
+
+  <ion-button (click)="uploadPdf('')">
+    <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+    Upload PDF
+  </ion-button>
+  
+  <ion-button (click)="downloadbase64()">
+    <ion-icon slot="start" name="cloud-download-outline"></ion-icon>
+    Download File
+  </ion-button>
+
+
+  <ion-button (click)="selectPdfFile()">
+    <ion-icon slot="start" name="cloud-download-outline"></ion-icon>
+    up pd
+  </ion-button>
+  
+  <ion-button (click)="recognizeVoice()">
+    <ion-icon slot="start" name="recording-outline"></ion-icon>
+    Recogize
+  </ion-button>
+
+  <ion-button (click)="recognizeVoiceGoogle()">
+    <ion-icon slot="start" name="recording-outline"></ion-icon>
+    Recogize Google
+  </ion-button>
+  
+</ion-footer>
